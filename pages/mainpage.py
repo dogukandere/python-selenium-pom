@@ -1,9 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
-
 from pages.PageBase import PageBase
-
 
 class MainPage(PageBase):
 
@@ -15,11 +13,11 @@ class MainPage(PageBase):
     SEARCH_BUTTON = (By.XPATH, "//div[@class='lJ9FBc']//input[@name='btnK']")
 
     def type_something(self, value):
-        element = self.driver.find_element(*MainPage.SEARCH_AREA)
-        element.send_keys(value)
+        self.sendKeys(MainPage.SEARCH_AREA,value)
         time.sleep(2)
 
+    def is_search_button_displayed(self):
+        return (self.isDisplayed(MainPage.SEARCH_BUTTON))
+
     def click_search(self):
-        # assert (MainPage.SEARCH_BUTTON.is_displayed())
         self.click(MainPage.SEARCH_BUTTON)
-        #self.driver.find_element(*MainPage.SEARCH_BUTTON).click()

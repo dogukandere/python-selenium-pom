@@ -15,6 +15,7 @@ class TestMainPage:
         self.driver.get("https://www.google.com/webhp?hl=tr&sa=X&ved=0ahUKEwim8rDz-tn_AhV_QvEDHflvDNYQPAgJ")
 
         mainpage.type_something("youtube")
+        assert (mainpage.is_search_button_displayed())
         mainpage.click_search()
 
 
