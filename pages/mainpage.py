@@ -14,7 +14,7 @@ class MainPage(PageBase):
     SEARCH_BOX_ELEMENT = (By.XPATH, "//input[@id='twotabsearchtextbox']")
     SEARCH_BUTTON = (By.XPATH, "//input[@id='nav-search-submit-button']")
 
-    def close_popup(self):
+    def close_popupp(self):
         self.click(MainPage.POPUP_ELEMENT)
 
     def amazon_logo_control(self):
