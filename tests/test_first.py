@@ -9,7 +9,7 @@ class TestMain:
         mainpage = MainPage(self.driver)
 
         self.driver.get("https://www.amazon.com.tr/ref=nav_logo")
-        mainpage.close_popupp()
+        mainpage.close_popup()
         assert (mainpage.amazon_logo_control())
         assert (mainpage.is_displayed_login_button())
         assert (mainpage.is_displayed_order_button())
