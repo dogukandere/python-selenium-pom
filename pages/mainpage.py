@@ -1,6 +1,4 @@
-from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time
 from pages.PageBase import PageBase
 
 class MainPage(PageBase):
@@ -9,15 +7,28 @@ class MainPage(PageBase):
         super().__init__(driver)
         self.driver = driver
 
-    SEARCH_AREA = (By.XPATH, "//textarea[@id='APjFqb']")
-    SEARCH_BUTTON = (By.XPATH, "//div[@class='lJ9FBc']//input[@name='btnK']")
+    POPUP_ELEMENT = (By.XPATH, "//*[@id='sp-cc-accept']")
+    AMAZON_LOGO = (By.XPATH, "//a[@id='nav-logo-sprites']")
+    LOGIN_BUTTON = (By.XPATH, "//span[@class='nav-line-2 ']")
+    ORDER_BUTTON = (By.XPATH, "//span[contains(text(),'ve Siparişler')]")
+    SEARCH_BOX_ELEMENT = (By.XPATH, "//input[@id='twotabsearchtextbox']")
+    SEARCH_BUTTON = (By.XPATH, "//input[@id='nav-search-submit-button']")
 
-    def type_something(self, value):
-        self.sendKeys(MainPage.SEARCH_AREA,value)
-        time.sleep(2)
+    def close_popup(self):
+        self.click(MainPage.POPUP_ELEMENT)
 
-    def is_search_button_displayed(self):
-        return (self.isDisplayed(MainPage.SEARCH_BUTTON))
+    def amazon_logo_control(self):
+        return (self.is_displayed(MainPage.AMAZON_LOGO))
 
-    def click_search(self):
+    def is_displayed_login_button(self):
+        return (self.is_displayed(MainPage.LOGIN_BUTTON))
+
+    def is_displayed_order_button(self):
+        return (self.is_displayed(MainPage.ORDER_BUTTON))
+
+    def type_product(self, product):
+        self.send_keys(MainPage.SEARCH_BOX_ELEMENT,product)
+
+    def search_product(self):
         self.click(MainPage.SEARCH_BUTTON)
+

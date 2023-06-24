@@ -1,22 +1,28 @@
 import pytest
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-import time
 from pages.mainpage import MainPage
-
+from pages.productpage import ProductPage
 
 @pytest.mark.usefixtures("setup")
-class TestMainPage:
+class TestMain:
 
-    def test_first(self):
-
+    def test_search_product(self):
         mainpage = MainPage(self.driver)
 
-        self.driver.get("https://www.google.com/webhp?hl=tr&sa=X&ved=0ahUKEwim8rDz-tn_AhV_QvEDHflvDNYQPAgJ")
+        self.driver.get("https://www.amazon.com.tr/ref=nav_logo")
+        mainpage.close_popup()
+        assert (mainpage.amazon_logo_control())
+        assert (mainpage.is_displayed_login_button())
+        assert (mainpage.is_displayed_order_button())
+        mainpage.type_product("macbook")
+        mainpage.search_product()
 
-        mainpage.type_something("youtube")
-        assert (mainpage.is_search_button_displayed())
-        mainpage.click_search()
+    def test_product_page(self):
+        productpage = ProductPage(self.driver)
+
+        assert productpage.text_control() == '"macbook"'
+        productpage.click_cargo_button()
+        productpage.click_product()
+
 
 
 
