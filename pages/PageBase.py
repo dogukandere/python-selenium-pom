@@ -50,4 +50,4 @@ class PageBase:
 
     def get_text(self, locator):
         element = self.wait_element_visibility(locator)
-        return element
+        return element.text
