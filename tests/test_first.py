@@ -1,6 +1,7 @@
 import pytest
 from pages.mainpage import MainPage
 from pages.productpage import ProductPage
+from selenium import webdriver
 
 @pytest.mark.usefixtures("setup")
 class TestMain:

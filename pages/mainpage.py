@@ -15,20 +15,20 @@ class MainPage(PageBase):
     SEARCH_BUTTON = (By.XPATH, "//input[@id='nav-search-submit-button']")
 
     def close_popup(self):
-        self.click(MainPage.POPUP_ELEMENT)
+        self.click(self.POPUP_ELEMENT)
 
     def amazon_logo_control(self):
-        return (self.is_displayed(MainPage.AMAZON_LOGO))
+        return (self.is_displayed(self.AMAZON_LOGO))
 
     def is_displayed_login_button(self):
-        return (self.is_displayed(MainPage.LOGIN_BUTTON))
+        return (self.is_displayed(self.LOGIN_BUTTON))
 
     def is_displayed_order_button(self):
-        return (self.is_displayed(MainPage.ORDER_BUTTON))
+        return (self.is_displayed(self.ORDER_BUTTON))
 
     def type_product(self, product):
-        self.send_keys(MainPage.SEARCH_BOX_ELEMENT,product)
+        self.send_keys(self.SEARCH_BOX_ELEMENT,product)
 
     def search_product(self):
-        self.click(MainPage.SEARCH_BUTTON)
+        self.click(self.SEARCH_BUTTON)
 
