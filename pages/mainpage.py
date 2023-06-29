@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
-from pages.PageBase import PageBase
+from pages.basepage import BasePage
 
-class MainPage(PageBase):
+class MainPage(BasePage):
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -20,14 +20,14 @@ class MainPage(PageBase):
     def amazon_logo_control(self):
         return (self.is_displayed(self.AMAZON_LOGO))
 
-    def is_displayed_login_button(self):
+    def is_login_button_displayed(self):
         return (self.is_displayed(self.LOGIN_BUTTON))
 
-    def is_displayed_order_button(self):
+    def is_order_button_displayed(self):
         return (self.is_displayed(self.ORDER_BUTTON))
 
     def type_product(self, product):
-        self.send_keys(self.SEARCH_BOX_ELEMENT,product)
+        self.send_keys(self.SEARCH_BOX_ELEMENT, product)
 
     def search_product(self):
         self.click(self.SEARCH_BUTTON)

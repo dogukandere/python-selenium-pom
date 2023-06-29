@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
-from pages.PageBase import PageBase
+from pages.basepage import BasePage
 
-class ProductPage(PageBase):
+class ProductPage(BasePage):
 
     def __init__(self, driver):
         super().__init__(driver)
