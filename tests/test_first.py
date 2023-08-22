@@ -1,6 +1,6 @@
 import pytest
-from pages.mainpage import MainPage
-from pages.productpage import ProductPage
+from pages.main_page import MainPage
+from pages.product_page import ProductPage
 
 @pytest.mark.usefixtures("setup")
 class TestMain:
