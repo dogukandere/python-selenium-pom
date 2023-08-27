@@ -3,10 +3,6 @@ from pages.base_page import BasePage
 
 class MainPage(BasePage):
 
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver = driver
-
     POPUP_ELEMENT = (By.XPATH, "//*[@id='sp-cc-accept']")
     AMAZON_LOGO = (By.XPATH, "//a[@id='nav-logo-sprites']")
     LOGIN_BUTTON = (By.XPATH, "//span[@class='nav-line-2 ']")
